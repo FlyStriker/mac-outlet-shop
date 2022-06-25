@@ -1,0 +1,8 @@
+@import url("./header.css");
+@import url("./items_page.css");
+
+.convas{
+    max-width: 1025px;
+    position: relative;
+    margin: 0 auto;
+}
