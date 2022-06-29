@@ -1,36 +1,34 @@
-fetch('https://shop-items-server.herokuapp.com/')
-    .then(response => response.json())
-    .then(data => {
-            const cards = createCards(data)
-            let container = document.querySelector('.item_cards')
-            for(let card of cards){
-                container.appendChild(card)
-            }
-    })
-    
-let createCards = (data) => {
-    
-    const cards = [];
 
-    for (let item of data) {
-    
-    let itemCard = document.createElement('div')
-    itemCard.className = 'body_item_card'
+fetch("https://shop-items-server.herokuapp.com/")
+  .then((response) => response.json())
+  .then((data) => {
+    const cards = createCards(data);
+    let container = document.querySelector(".item_cards");
+    for (let card of cards) {
+      container.appendChild(card);
+    }
+  });
+
+let createCards = (data) => {
+  const cards = [];
+
+  for (let item of data) {
+    let itemCard = document.createElement("div");
+    itemCard.className = "body_item_card";
     itemCard.innerHTML = `
-        <img src=“/img/${item.imgUrl}” alt="img_card" />
+        <img src="./img/${item.imgUrl}" alt="img_card" class="img_card" />
         <div class="item_card_info">
-            <h3>${item.name}</h3>
-            <p>${item.description}</p>
-            <p>${item.price}</p>
-            <button class="card_button">Add to cart</button> 
-            <div class="bottom_text">
-                <img src="./img/icons/like_filled.svg">
-                <p>${item.orderInfo}</p>
+            <h3 class="text_body_card" id="text_body_card">${item.name}</h3>
+            <p><img src="./img/icons/check_1.svg"> <b>${item.orderInfo.inStock}</b> left in stock</p>
+            <p>Prise: <b>${item.price}$</b></p>
+            <button class="card_button" id="card_button">Add to cart</button> 
+            <div class="bottom_card" >
+                <img src="./img/icons/like_filled.svg" class="bottom_like">
+                <p class="bottom_card_text">${item.orderInfo.reviews}% Positive reviews. Above avarage </p>
             </div>
         </div>
-    `
-    cards.push(itemCard)
- 
-}
-    return cards
-}
+    `;
+    cards.push(itemCard);
+  }
+  return cards;
+};
