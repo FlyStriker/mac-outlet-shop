@@ -1,0 +1,143 @@
+.convas_body {
+    margin-top: 10px;
+}
+
+
+
+.body_input_search {
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 17px;
+    border: 2px solid rgb(236, 236, 236);
+    border-radius: 15px;
+    float: left;
+    width: 97%;
+    margin-right: px;
+    background: #ffffff;
+    display: flex;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    height: 36px;
+    margin-bottom: 40px;
+}
+
+.input_searcher {
+    margin-left: 25px;
+    width: 90%;
+    border: none;
+    font-size: medium;
+    outline: none;
+}
+
+.main_button_filter {
+    border: none;
+    background-color: white;
+}
+
+.main_button_setting {
+    border: none;
+    background-color: white;
+
+
+}
+
+.searcher_logo {
+    width: 20px;
+    height: 20px;
+}
+
+.searcher_filter {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.searcher_setting {
+    width: 40px;
+    height: 40px;
+    margin-left: 14px;
+    cursor: pointer;
+}
+
+
+/* body */
+
+
+.body_item_card {
+    width: 300px;
+    height: 480px;
+    float: left;
+    margin: 0 15px 15px 0;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #d8d5d5;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px gainsboro;
+}
+
+.text_body_card {
+    margin-top: 26px;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #000000;
+
+}
+
+.bottom_card {
+    display: flex;
+
+    margin-top: 6px;
+    width: 80%;
+
+    height: 77px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom_like {
+    width: 20px;
+    height: 20px;
+}
+
+.bottom_card_text {
+    background-color: #ffffff;
+    width: 70%;
+}
+
+.card_element {
+    width: 300px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    border-radius: 5px;
+
+}
+
+.img_card {
+    width: 200px;
+    height: 200px;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.card_button {
+    width: 150px;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    justify-items: center;
+    background-color: #0E49B5;
+    color: white;
+    border: 2px solid #000000;
+    cursor: pointer;
+    border-radius: 5px;
+}

@@ -1,5 +1,6 @@
 @import url("./header.css");
-@import url("./items_page.css");
+@import url("./itemsPage.css");
+@import url("./addSlider.css");
 
 .convas{
     max-width: 1025px;
