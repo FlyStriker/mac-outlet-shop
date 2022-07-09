@@ -6,6 +6,9 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>MacOutlet</title>
 </head>
@@ -25,7 +28,7 @@
         </div>
 
         <!-- BODY "main items page" -->
-        <div class="convas_body">
+        <div class="convas_body" id="convas_body">
 
             <div class="slider">
                 <div class="item">
@@ -104,11 +107,11 @@
                 <img src="./img/icons/search.svg" alt="searcher_logo" class="searcher_logo">
                 <input type="text" name="text" id="inputSearch" class="input_searcher"
                     placeholder="Enter device name...">
-                <button class="main_button_filter">
+                <button class="main_button_filter" onclick="showMenu()" type="button">
                     <img src="./img/icons/filter.svg" class="searcher_filter">
                 </button>
 
-                <button class="main_button_setting">
+                <button class="main_button_setting" type="button">
                     <img src="./img/icons/setting.svg" class="searcher_setting">
                 </button>
             </form>
@@ -116,7 +119,63 @@
             <!-- Card of items -->
             <div class="convas_item">
                 <div class="setting_menu">
+                    <ul class="setting_menu_list">
+                        <label><a href="">Price</a></label>
+                        <div class="setting_menu_price">
+                            <p class="setting_menu_price_from">From <input type="value"></input></p>
 
+                            <p class="setting_menu_price_to">To <input type="value"></p>
+                        </div>
+
+                        <label><a href="">Color</a></label>
+                        <div class="setting_menu_color">
+                            <ul class="setting_menu_color_list">
+                                <li><input type="checkbox"> Red</li>
+                                <li><input type="checkbox"> Black</li>
+                                <li><input type="checkbox"> Blue</li>
+                                <li><input type="checkbox"> Gold</li>
+                                <li><input type="checkbox"> Green</li>
+                                <li><input type="checkbox"> White</li>
+                                <li><input type="checkbox"> Grey</li>
+                                <li><input type="checkbox"> Yellow</li>
+                            </ul>
+                        </div>
+
+                        <label><a href="">Memory</a></label>
+                        <div class="setting_menu_memory">
+                            <ul class="setting_menu_memory_list">
+                                <li><input type="checkbox"> 32 Gb</li>
+                                <li><input type="checkbox"> 64 Gb</li>
+                                <li><input type="checkbox"> 128 Gb</li>
+                                <li><input type="checkbox"> 256 Gb</li>
+                                <li><input type="checkbox"> 512 Gb</li>
+                                <li><input type="checkbox"> 1 Tb</li>
+                                <li><input type="checkbox"> 2 Tb</li>
+                                <li><input type="checkbox"> 4 Tb</li>
+                            </ul>
+                        </div>
+
+                        <label><a href="">OS</a></label>
+                        <div class="setting_menu_os">
+                            <ul class="setting_menu_os_list">
+                                <li><input type="checkbox"> iOS</li>
+                                <li><input type="checkbox"> Mac OS</li>
+                                <li><input type="checkbox"> tv OS</li>
+                                <li><input type="checkbox"> Watch OS</li>
+                            </ul>
+                        </div>
+
+                        <label><a href="">Display</a></label>
+                        <div class="setting_menu_os">
+                            <ul class="setting_menu_display_list">
+                                <li><input type="checkbox"> 2-5 inch</li>
+                                <li><input type="checkbox"> 5-7 inch</li>
+                                <li><input type="checkbox"> 7-12 inch</li>
+                                <li><input type="checkbox"> 12-16 inch</li>
+                                <li><input type="checkbox"> 16+ inch</li>
+                            </ul>
+                        </div>
+                    </ul>
                 </div>
                 <div>
                     <div class="item_cards"></div>
@@ -131,6 +190,7 @@
     <script src="./js/addToBasket.js"></script>
     <script src="./js/searchInput.js"></script>
     <script src="./js/addSlider.js"></script>
+    <script src="./js/addFilterMenu.js"></script>
 </body>
 
 </html>
@@ -138,3 +198,4 @@
 <!-- 1) как сделать страницу под кнопки на ипнпуте -->
 <!-- 2) добавить функцию фильтр в инпут  -->
 <!-- 3) корзина под клик от ИНЕР НТМл -->
+<!-- модальное окно* -->

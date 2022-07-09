@@ -3,7 +3,8 @@ const changeText = document.querySelector(".basket_number");
 
 let click = 0;
 buttonCard.addEventListener("click", () => {
-    click+=1
+    console.log(click);
+    click += 1
     changeText.innerHTML = click;
     localStorage.setItem("Add item to basket", click);
 })
