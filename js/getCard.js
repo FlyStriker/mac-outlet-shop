@@ -1,12 +1,10 @@
-
+var products;
 fetch("https://shop-items-server.herokuapp.com/")
   .then((response) => response.json())
   .then((data) => {
-    const cards = createCards(data);
-    let container = document.querySelector(".item_cards");
-    for (let card of cards) {
-      container.appendChild(card);
-    }
+    products = data;
+
+    createCards(products);
   });
 
 let createCards = (data) => {
@@ -30,5 +28,10 @@ let createCards = (data) => {
     `;
     cards.push(itemCard);
   }
-  return cards;
+
+  let container = document.querySelector(".item_cards");
+  container.innerHTML = "";
+  for (let card of cards) {
+    container.appendChild(card);
+  }
 };

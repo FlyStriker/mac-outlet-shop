@@ -1,0 +1,132 @@
+ .basket_container {
+     position: absolute;
+     display: none;
+     flex-direction: column;
+     align-items: center;
+     width: 432px;
+     max-height: 100%;
+     background-color: #fff;
+     border-radius: 15px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+     padding: 10px;
+     margin-left: 56%;
+     z-index: 10;
+ }
+
+ .basket_header {
+     width: 434px;
+     height: 128px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     top: 0;
+     left: 0;
+ }
+
+ .basket_main_title {
+     font-family: Roboto;
+     font-size: 24px;
+     font-weight: 700;
+     line-height: 28px;
+     letter-spacing: 0em;
+     text-align: left;
+ }
+
+ .basket_sub_title {
+     font-family: Roboto;
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 19px;
+     letter-spacing: 0em;
+     text-align: left;
+ }
+
+ .basket_item {
+     display: flex;
+ }
+
+ .basket_total {
+     display: flex;
+     justify-content: space-around;
+
+ }
+
+ .basket_footer_title {
+     display: flex;
+     justify-content: center;
+ }
+
+ .basket_total {
+     background-color: #EAF6FF;
+     height: 50px;
+     width: 100%;
+     border-radius: 5px;
+ }
+
+ .basket_footer_title {
+     height: 90px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .basket_footer_title button {
+     width: 250px;
+     height: 50px;
+     font-family: Roboto;
+     font-size: 22px;
+     font-weight: 700;
+     line-height: 26px;
+     letter-spacing: 0em;
+     text-align: left;
+     text-align: center;
+     justify-items: center;
+     background-color: #0E49B5;
+     color: white;
+     border: 2px solid #000000;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ @media screen and (max-width: 1045px) {
+     .basket_container {
+         margin-left: 52%;
+
+     }
+ }
+
+ @media screen and (max-width: 955px) {
+     .basket_container {
+         margin-left: 45%;
+
+     }
+ }
+
+ @media screen and (max-width: 840px) {
+     .basket_container {
+         margin-left: 40%;
+
+     }
+ }
+
+ @media screen and (max-width: 770px) {
+     .basket_container {
+         margin-left: 32%;
+
+     }
+ }
+
+ @media screen and (max-width: 680px) {
+     .basket_container {
+         margin-left: 24%;
+
+     }
+ }
+
+ @media screen and (max-width: 615px) {
+     .basket_container {
+         margin-left: 15%;
+
+     }
+ }

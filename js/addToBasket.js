@@ -9,4 +9,12 @@ buttonCard.addEventListener("click", () => {
     localStorage.setItem("Add item to basket", click);
 })
 
+let menuBasket = document.querySelector(".basket_container");
 
+let showBasket = () => {
+    let basket = menuBasket
+
+    basket.style.display = basket.style.display === "block" ? "none" : "block";
+    click = true;
+};
+ 
