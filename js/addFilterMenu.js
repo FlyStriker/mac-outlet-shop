@@ -16,13 +16,21 @@ form.addEventListener("change", () => {
     .map((item) => item.value);
   const storages = Array.from(form.storage)
     .filter((item) => item.checked)
-    .map((item) => item.value);
-  const platform = Array.from(form.os)
+    .map((item) => +item.value);
+  const platforms = Array.from(form.os)
     .filter((item) => item.checked)
     .map((item) => item.value);
-  const size = Array.from(form.display)
+  const displaySizes = Array.from(form.display)
     .filter((item) => item.checked)
-    .map((item) => item.value);
+    .map(item => {
+      const min = item.getAttribute("aria-valuemin");
+      const max = item.getAttribute("aria-valuemax");
+
+      return {
+        min: min ? +min : undefined,
+        max: max ? +max : undefined
+      }
+    });
 
   let productsToDisplay = products;
 
@@ -44,19 +52,27 @@ form.addEventListener("change", () => {
     );
   }
 
-  
-  if(storages.length > 0){
-    productsToDisplay = productsToDisplay.filter(product => storages.includes(product.storage))
-}
 
-  if(platform.length > 0){
-    productsToDisplay = productsToDisplay.filter(product => platform.includes(product.os))
-}
-  
-  if(size.length > 0){
-    productsToDisplay = productsToDisplay.filter(product => size.includes(product.display))
-}
+  if (storages.length > 0) {
+    productsToDisplay = productsToDisplay.filter(product => storages.includes(product.storage))
+  }
+
+  if (platforms.length > 0) {
+    productsToDisplay = productsToDisplay.filter(product => platforms.includes(product.os))
+  }
+
+  if (displaySizes.length > 0) {
+    productsToDisplay = productsToDisplay.filter(product => displaySizes.some(size => {
+      if (size.min && size.max) {
+        return product.display >= size.min && product.display <= size.max;
+      }
+      if (!size.max && size.min) {
+        return product.display >= size.min;
+      }
+    }
+    )
+    );
+  }
 
   createCards(productsToDisplay);
-  console.log(productsToDisplay);
 });

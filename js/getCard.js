@@ -19,7 +19,7 @@ let createCards = (data) => {
             <h3 class="text_body_card" id="text_body_card">${item.name}</h3>
             <p><img src="./img/icons/check_1.svg"> <b>${item.orderInfo.inStock}</b> left in stock</p>
             <p>Prise: <b>${item.price}$</b></p>
-            <button class="card_button" id="card_button">Add to cart</button> 
+            <button class="card_button" id="card_button" aria-value="${item.id}">Add to cart</button> 
             <div class="bottom_card" >
                 <img src="./img/icons/like_filled.svg" class="bottom_like">
                 <p class="bottom_card_text">${item.orderInfo.reviews}% Positive reviews. Above avarage </p>
@@ -34,4 +34,5 @@ let createCards = (data) => {
   for (let card of cards) {
     container.appendChild(card);
   }
+  addToCartHandlers();
 };

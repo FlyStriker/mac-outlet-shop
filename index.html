@@ -37,18 +37,10 @@
                         <p class="basket_sub_title">Checkout is almost done!</p>
                     </div>
                     <div class="basket_body">
-                        <div class="basket_item">
-                            <!-- <img src="" alt="">
-                        <p></p>
-                        <a href=""></a>
-                        <button> <= </button>
-                                <p>количество товаров</p>
-                                <button> => </button>
-                                <button>x</button> -->
-                        </div>
+                       
                     </div>
                     <div class="basket_total">
-                        <p>Total amount : </p>
+                        <p class="basket_total_value">Total amount : </p>
                         <p>Total price : </p>
                     </div>
                     <div class="basket_footer">
@@ -109,7 +101,7 @@
                         <img src="./img/banners/air_pods_max_banner.jpg" alt="AirPods Max">
                         <div class="slideText">
                             <p>AirPods Max</p>
-                            <button class="slideText_button">Add to cart</button>
+                            <button class="slideText_button" value="">Add to cart</button>
 
                         </div>
                     </div>
@@ -188,7 +180,7 @@
                             <div class="setting_menu_os">
                                 <ul class="setting_menu_os_list">
                                     <li><input name="os" type="checkbox" value="IOS"> iOS</li>
-                                    <li><input name="os" type="checkbox" value="MacOS"> Mac OS</li>
+                                    <li><input name="os" type="checkbox" value="macOS"> Mac OS</li>
                                     <li><input name="os" type="checkbox" value="tvOS"> tv OS</li>
                                     <li><input name="os" type="checkbox" value="watchOS"> Watch OS</li>
                                 </ul>
@@ -197,11 +189,15 @@
                             <label><a href="">Display</a></label>
                             <div class="setting_menu_os">
                                 <ul class="setting_menu_display_list">
-                                    <li><input name="display" type="checkbox" value="2.0-5.0"> 2-5 inch</li>
-                                    <li><input name="display" type="checkbox" value="5.0-7.0"> 5-7 inch</li>
-                                    <li><input name="display" type="checkbox" value="7.0-12.0 "> 7-12 inch</li>
-                                    <li><input name="display" type="checkbox" value="12.0-16.0"> 12-16 inch</li>
-                                    <li><input name="display" type="checkbox" value=">16.0"> 16+ inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="2" aria-valuemax="5"> 2-5
+                                        inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="5" aria-valuemax="7"> 5-7
+                                        inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="7" aria-valuemax="12"> 7-12
+                                        inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="12" aria-valuemax="16">
+                                        12-16 inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="16"> 16+ inch</li>
                                 </ul>
                             </div>
                         </ul>
@@ -215,8 +211,8 @@
         </div>
 
     </div>
-    <script src="./js/getCard.js"></script>
     <script src="./js/addToBasket.js"></script>
+    <script src="./js/getCard.js"></script>
     <script src="./js/searchInput.js"></script>
     <script src="./js/addSlider.js"></script>
     <script src="./js/addFilterMenu.js"></script>
