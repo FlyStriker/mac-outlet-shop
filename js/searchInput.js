@@ -1,19 +1,16 @@
 let searchInput = document.getElementById("inputSearch");
 
 searchInput.addEventListener("keyup", function (event) {
+  let value = event.target.value.trim().toLowerCase();
 
-    let value = event.target.value.trim().toLowerCase();
-    
-    let products = document.querySelectorAll(".body_item_card");
+  let products = document.querySelectorAll(".body_item_card");
 
+  products.forEach((product) => {
+    let productName = product
 
-    products.forEach((product) => {
-
-        let productName = product
-
-        .querySelector("#text_body_card")
-        .textContent.trim()
-        .toLowerCase();
+      .querySelector("#text_body_card")
+      .textContent.trim()
+      .toLowerCase();
 
     if (!productName.includes(value)) {
       product.style.display = "none";

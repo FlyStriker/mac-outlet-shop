@@ -19,8 +19,15 @@ function addToCartHandlers() {
   cartButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const productId = +event.target.getAttribute("aria-value");
-      const product = products.find((product) => product.id === productId);
-      cartProducts.push(product);
+      let product = { ...products.find((p) => p.id === productId) };
+
+      let existedProduct = cartProducts.find((p) => p.id === product.id);
+      if (existedProduct) {
+        existedProduct.qty += 1;
+      } else {
+        product.qty = 1;
+        cartProducts.push(product);
+      }
 
       renderCart();
       localStorage.setItem("cart_items", JSON.stringify(cartProducts));
@@ -28,34 +35,50 @@ function addToCartHandlers() {
   });
 }
 
-function changeNumberItems() {
-  const plus = document.querySelector(".plus");
-  const minus = document.querySelector(".minus");
-  const numberText = document.querySelector(".basket_product_number_text");
+function addItemQuantityHandlers() {
+  const pluses = document.querySelectorAll(".plus");
+  const minuses = document.querySelectorAll(".minus");
 
-  let count = 1;
-  plus.onclick = function () {
-    count += 1;
-    numberText.innerHTML = count;
-  };
-  minus.onclick = function () {
-    count -= 1;
-    numberText.innerHTML = count;
-  };
+  pluses.forEach((plus) => {
+    plus.addEventListener("click", (event) => {
+      const productId = +event.target.getAttribute("aria-value");
+      const existedProduct = cartProducts.find((p) => p.id === productId);
+      existedProduct.qty = existedProduct.qty + 1;
+      localStorage.setItem("cart_items", JSON.stringify(cartProducts));
+      renderCart();
+    });
+  });
+
+  minuses.forEach((minus) => {
+    minus.addEventListener("click", (event) => {
+      const productId = +event.target.getAttribute("aria-value");
+      const existedProduct = cartProducts.find((p) => p.id === productId);
+      console.log(event);
+
+      if (existedProduct.qty === 1) {
+        event.target.classList.add("disabled-qty-btn");
+      } else {
+        existedProduct.qty = existedProduct.qty - 1;
+      }
+      localStorage.setItem("cart_items", JSON.stringify(cartProducts));
+      renderCart();
+    });
+  });
 }
 
-function deleteItem() {
-  const deleteButtons = document.querySelectorAll(".basket_product_button_delete");
-  const itemProd = document.querySelector(".basket_item");
-  
-  deleteButtons.onclick = function () {
-    itemProd.remove();
-    renderCart()
-    // localStorage.removeItem("cart_items");
-  };
-
-}    
-
+function addDeleteButtonsHandlers() {
+  const deleteButtons = document.querySelectorAll(
+    ".basket_product_button_delete button"
+  );
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const id = +event.target.getAttribute("aria-value");
+      cartProducts = cartProducts.filter((product) => product.id !== id);
+      localStorage.setItem("cart_items", JSON.stringify(cartProducts));
+      renderCart();
+    });
+  });
+}
 
 function renderCart() {
   const changeText = document.querySelector(".basket_number");
@@ -68,31 +91,36 @@ function renderCart() {
     const productWrapper = document.createElement("div");
     productWrapper.innerHTML = `
         <div class="basket_item">
-         <img src=${product.imgUrl} alt="product_image" class="basket_product_image">
+         <img src="./img/${
+           product.imgUrl
+         }" alt="product_image" class="basket_product_image">
          <div class="basket_product_info">
           <p class="basket_product_info_name">${product.name}</p>
-          <a href="#" class="basket_product_info_prise" value=${product.price}>$${product.price}</a>
+          <a href="#" class="basket_product_info_prise" value=${
+            product.price
+          }>$${product.price}</a>
          </div>
            <div class="basket_product_number">
-               <button class="minus" ><</button>
-                <p class="basket_product_number_text">1</p>
-               <button class="plus">></button>
+               <button aria-value="${product.id}" class="minus" ${
+      product.qty === 1 ? "disabled" : ""
+    } ><</button>
+                <p class="basket_product_number_text">${product.qty}</p>
+               <button aria-value="${product.id}" class="plus">></button>
            </div>
          <div class="basket_product_button_delete">
-          <button>x</button> 
+          <button aria-value="${product.id}">x</button> 
          </div>
         </div>
         `;
-    console.log(product.imgUrl);
     container.append(productWrapper);
-    changeNumberItems();
-    deleteItem();
   });
+  addItemQuantityHandlers();
+  addDeleteButtonsHandlers();
 }
 
 function totalValue() {
   const totalValue = document.querySelector(".basket_total_value");
-  totalValue = sum (cartProducts.price);
+  totalValue = sum(cartProducts.price);
   let totalPrice = 0;
   cartProducts.forEach((product) => {
     totalPrice += product.price;

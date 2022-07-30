@@ -7,10 +7,6 @@
     margin-bottom: 15px;
     border: 1px solid #000;
 }
-
-
-
-
 /* Картинка маштабируется по отношению к родительскому элементу */
 .slider .item img {
     object-fit: cover;
@@ -52,8 +48,6 @@ nobr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
 
 /* Кнопки вперед и назад */
@@ -198,6 +192,6 @@ nobr {
     .slider {
         height: 340px;
     }
-    
+
 
 }
