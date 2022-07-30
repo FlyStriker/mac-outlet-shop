@@ -3,11 +3,10 @@
     max-width: 100%;
     position: relative;
     margin: auto;
-    height: 512px;
+    max-height: 512px;
     margin-bottom: 15px;
     border: 1px solid #000;
 }
-
 /* Картинка маштабируется по отношению к родительскому элементу */
 .slider .item img {
     object-fit: cover;
@@ -49,8 +48,6 @@ nobr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
 
 /* Кнопки вперед и назад */
@@ -140,4 +137,61 @@ nobr {
     to {
         opacity: 1
     }
+}
+
+
+@media screen and (max-width: 1050px) {
+    .slider {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .slider {
+        height: 470px;
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    .slider {
+        height: 450px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .slider {
+        height: 420px;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+    .slider {
+        height: 400px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .slider {
+        height: 388px;
+    }
+
+}
+
+@media screen and (max-width: 750px) {
+    .slider {
+        height: 363px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .slider {
+        height: 340px;
+    }
+
+
 }

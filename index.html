@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>MacOutlet</title>
+</head>
+
+<body>
+    <div class="convas">
+
+        <!-- HEADER -->
+        <div class="convas_header">
+            <img src="./img/icons/logo.svg" alt="logo" class="logo">
+            <div class="basket" onclick="showBasket()">
+                <a href="#" class="basket_img_container">
+                    <img src="./img/icons/cart.svg" alt="cart" class="basket_img">
+                </a>
+                <div class="basket_number">0</div>
+            </div>
+        </div>
+
+        <!-- BODY "main items page" -->
+        <div class="convas_body" id="convas_body">
+            <div class="basket_convas">
+                <div class="basket_container">
+                    <div class="basket_header">
+                        <p class="basket_main_title">Shopping Cart</p>
+                        <p class="basket_sub_title">Checkout is almost done!</p>
+                    </div>
+                    <div class="basket_body">
+
+                    </div>
+                    <div class="basket_total">
+                        <p class="basket_total_value">Total amount : </p>
+                        <p>Total price : </p>
+                    </div>
+                    <div class="basket_footer">
+                        <div class="basket_footer_title">
+                            <button class="basket_footer_botton">Buy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider">
+                    <div class="item">
+                        <img src="./img/banners/ipad_air_banner.jpg" alt="IPad Air 4">
+                        <div class="slideText">
+                            <p>IPad Air 4</p>
+                            <button class="slideText_button">Add to cart</button>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./img/banners/airpods_pro_banner.png" alt="AirPods Pro">
+                        <div class="slideText">
+                            <p>AirPods Pro</p>
+                            <button class="slideText_button">Add to cart</button>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./img/banners/watch_banner.jpg" alt="Первый слайд">
+                        <div class="slideText">
+                            <p>Apple Watch 4</p>
+                            <button class="slideText_button">add to cart</button>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./img/banners/iphone_12_banner.jpg" alt="iPhone 12 / 12 Mini">
+                        <div class="slideText">
+                            <p> </p>
+                            <button class="slideText_button">Add to cart</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./img/banners/mac_book_banner.jpg" alt="MacBook Pro 16">
+                        <div class="slideText">
+                            <nobr>MacBook Pro 16</nobr>
+                            <button class="slideText_button">Add to cart</button>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./img/banners/apple_tv_banner.png" alt="Apple TV">
+                        <div class="slideText">
+                            <p>Apple TV</p>
+                            <button class="slideText_button">Add to cart</button>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./img/banners/air_pods_max_banner.jpg" alt="AirPods Max">
+                        <div class="slideText">
+                            <p>AirPods Max</p>
+                            <button class="slideText_button" value="">Add to cart</button>
+
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="minusSlide()">&#10094;</a>
+                    <a class="next" onclick="plusSlide()">&#10095;</a>
+                </div>
+
+                <div class="slider-dots">
+                    <span class="slider-dots_item" onclick="currentSlide(1)"></span>
+                    <span class="slider-dots_item" onclick="currentSlide(2)"></span>
+                    <span class="slider-dots_item" onclick="currentSlide(3)"></span>
+                    <span class="slider-dots_item" onclick="currentSlide(4)"></span>
+                    <span class="slider-dots_item" onclick="currentSlide(5)"></span>
+                    <span class="slider-dots_item" onclick="currentSlide(6)"></span>
+                    <span class="slider-dots_item" onclick="currentSlide(7)"></span>
+                </div>
+
+
+                <!-- Input search -->
+                <form class="body_input_search">
+                    <img src="./img/icons/search.svg" alt="searcher_logo" class="searcher_logo">
+                    <input type="text" name="text" id="inputSearch" class="input_searcher"
+                        placeholder="Enter device name...">
+                    <button class="main_button_filter" onclick="showMenu()" type="button">
+                        <img src="./img/icons/filter.svg" class="searcher_filter">
+                    </button>
+
+                    <button class="main_button_setting" type="button">
+                        <img src="./img/icons/setting.svg" class="searcher_setting">
+                    </button>
+                </form>
+
+                <!-- Card of items -->
+                <div class="convas_item">
+                    <form name="filter_form" class="setting_menu" id="filter_form">
+                        <ul class="setting_menu_list">
+                            <label><a href="">Price</a></label>
+                            <div class="setting_menu_price">
+                                <p class="setting_menu_price_from">From <input name="price_from" type="text" /></p>
+
+                                <p class="setting_menu_price_to">To <input name="price_to" type="text"></p>
+                            </div>
+
+                            <label><a href="">Color</a></label>
+                            <div class="setting_menu_color">
+                                <ul class="setting_menu_color_list">
+                                    <li><input name="color" type="checkbox" value="Red"> Red</li>
+                                    <li><input name="color" type="checkbox" value="Black"> Black</li>
+                                    <li><input name="color" type="checkbox" value="Blue"> Blue</li>
+                                    <li><input name="color" type="checkbox" value="Graphite"> Graphite</li>
+                                    <li><input name="color" type="checkbox" value="Gold"> Gold</li>
+                                    <li><input name="color" type="checkbox" value="Green"> Green</li>
+                                    <li><input name="color" type="checkbox" value="White"> White</li>
+                                    <li><input name="color" type="checkbox" value="Space Grey"> Grey</li>
+                                    <li><input name="color" type="checkbox" value="Yellow"> Yellow</li>
+                                    <li><input name="color" type="checkbox" value="Silver"> Silver</li>
+                                </ul>
+                            </div>
+
+                            <label><a href="">Memory</a></label>
+                            <div class="setting_menu_memory">
+                                <ul class="setting_menu_memory_list">
+                                    <li><input name="storage" type="checkbox" value="32"> 32 Gb</li>
+                                    <li><input name="storage" type="checkbox" value="64"> 64 Gb</li>
+                                    <li><input name="storage" type="checkbox" value="128"> 128 Gb</li>
+                                    <li><input name="storage" type="checkbox" value="256"> 256 Gb</li>
+                                    <li><input name="storage" type="checkbox" value="512"> 512 Gb</li>
+                                    <li><input name="storage" type="checkbox" value="1000"> 1 Tb</li>
+                                    <li><input name="storage" type="checkbox" value="2000"> 2 Tb</li>
+                                    <li><input name="storage" type="checkbox" value="4000"> 4 Tb</li>
+                                </ul>
+                            </div>
+
+                            <label><a href="">OS</a></label>
+                            <div class="setting_menu_os">
+                                <ul class="setting_menu_os_list">
+                                    <li><input name="os" type="checkbox" value="IOS"> iOS</li>
+                                    <li><input name="os" type="checkbox" value="macOS"> Mac OS</li>
+                                    <li><input name="os" type="checkbox" value="tvOS"> tv OS</li>
+                                    <li><input name="os" type="checkbox" value="watchOS"> Watch OS</li>
+                                </ul>
+                            </div>
+
+                            <label><a href="">Display</a></label>
+                            <div class="setting_menu_os">
+                                <ul class="setting_menu_display_list">
+                                    <li><input name="display" type="checkbox" aria-valuemin="2" aria-valuemax="5"> 2-5
+                                        inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="5" aria-valuemax="7"> 5-7
+                                        inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="7" aria-valuemax="12"> 7-12
+                                        inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="12" aria-valuemax="16">
+                                        12-16 inch</li>
+                                    <li><input name="display" type="checkbox" aria-valuemin="16"> 16+ inch</li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </form>
+                    <div>
+                        <div class="item_cards"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/addToBasket.js"></script>
+    <script src="./js/getCard.js"></script>
+    <script src="./js/searchInput.js"></script>
+    <script src="./js/addSlider.js"></script>
+    <script src="./js/addFilterMenu.js"></script>
+</body>
+</html>
